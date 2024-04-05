@@ -5,11 +5,13 @@
     "hide_season_text": true,
     "extra_keys": [
       "stroke_color",
-      "kanji_color"
+      "kanji_color",
+      "kanji_font_size"
     ],
     "extra_values": [
       "black",
-      "#fff006"
+      "#fff006",
+      "1.3"
     ],
     "template_ids": [],
     "font_color": "#fff006",
