@@ -1,0 +1,35 @@
+{
+  "series": {
+    "font_id": 0,
+    "card_type": "tinted frame",
+    "template_ids": [],
+    "font_vertical_shift": -15,
+    "source_files": [],
+    "extra_keys": [
+      "episode_text_vertical_shift",
+      "top_element",
+      "bottom_element"
+    ],
+    "extra_values": [
+      "0",
+      "logo",
+      "title"
+    ]
+  },
+  "fonts": [
+    {
+      "name": "Young Sherlock",
+      "color": "yellow1",
+      "file": "HandStampSwissRoughSans.ttf",
+      "title_case": "source"
+    }
+  ],
+  "creator": "Sproglet",
+  "description": [
+    "Young Sherlock blueprint with a similar font to the logo and based on the Tinted Frame."
+  ],
+  "previews": [
+    "preview0.jpg"
+  ],
+  "created": "2026-03-13T14:34:16"
+}
