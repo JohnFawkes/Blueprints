@@ -1,0 +1,31 @@
+{
+  "series": {
+    "font_id": 0,
+    "card_type": "tinted frame"
+  },
+  "fonts": [
+    {
+      "name": "Scrubs",
+      "file": "tsslogo.ttf",
+      "replacements_in": [
+        "\u00e9",
+        "\u00e0"
+      ],
+      "replacements_out": [
+        "e",
+        "a"
+      ],
+      "size": 1.4,
+      "title_case": "lower",
+      "vertical_shift": -10
+    }
+  ],
+  "creator": "JCPlex81",
+  "description": [
+    "A quick refresh on the Scrubs blueprint for the 2026 reboot."
+  ],
+  "previews": [
+    "preview0.jpg"
+  ],
+  "created": "2026-03-13T14:36:45"
+}
