@@ -7,7 +7,7 @@ Blueprints for importing premade Series configurations into TitleCardMaker.
 
 ## Blueprints
 
-There are currently `907` Blueprints available for `718` Series, submitted by `62` Creators.
+There are currently `911` Blueprints available for `721` Series, submitted by `62` Creators.
 
 Series with the most Blueprints:
 | Series | Blueprints |
@@ -22,7 +22,7 @@ Creators with the most Blueprint Submissions:
 | Username | Blueprints |
 | :---: | :--- |
 | CollinHeist | 317 |
-| Reicha7 | 241 |
+| Reicha7 | 245 |
 | Azuravian | 40 |
 | MrSaiclops | 36 |
 | anonfawkes | 34 |
@@ -92,7 +92,7 @@ There are currently `22` Blueprint Sets available:
 | Set ID | Name  | Linked Blueprints |
 | :----: | :---: | :--- |
 | `1` | Scooby-Doo | LEGO Scooby-Doo Shorts [0]<br>Scooby's All-Star Laff-A-Lympics [0]<br>The 13 Ghosts of Scooby-Doo [0]<br>A Pup Named Scooby-Doo [0]<br>+10 more |
-| `2` | Marvel Cinematic Universe | Loki [1]<br>Marvel's Inhumans [0]<br>Echo [0]<br>Marvel's Agents of S.H.I.E.L.D. [0]<br>+7 more |
+| `2` | Marvel Cinematic Universe | Loki [1]<br>Marvel's Inhumans [0]<br>Echo [0]<br>Marvel's Agents of S.H.I.E.L.D. [0]<br>+8 more |
 | `3` | Legend of the Galactic Heroes | Legend of the Galactic Heroes: Die Neue These [0]<br>Legend of the Galactic Heroes [0] |
 | `4` | Dexter | Dexter [0]<br>Dexter: New Blood [1]<br>Dexter: Resurrection [1] |
 | `5` | Dragon Ball Universe | Dragon Ball Super [0]<br>Dragon Ball Z [0]<br>Dragon Ball [0]<br>Dragon Ball GT [0]<br>+1 more |
@@ -100,7 +100,7 @@ There are currently `22` Blueprint Sets available:
 | `7` | The Real Housewives | The Real Housewives of Atlanta [0]<br>The Real Housewives of Beverly Hills [0]<br>The Real Housewives of Miami [0]<br>The Real Housewives Ultimate Girls Trip [0]<br>+9 more |
 | `8` | Naruto | Naruto Shippuden [1]<br>Naruto [1] |
 | `9` | Ken Burns | The U.S. and the Holocaust [0]<br>The Dust Bowl [0]<br>The American Buffalo [0]<br>The Vietnam War [0]<br>+9 more |
-| `10` | David Attenborough Documentaries | Planet Earth II [1]<br>Blue Planet II [1]<br>Planet Earth III [0]<br>Mammals [0]<br>+9 more |
+| `10` | David Attenborough Documentaries | Planet Earth II [1]<br>Blue Planet II [1]<br>Planet Earth III [0]<br>Mammals [0]<br>+10 more |
 | `11` | Castlevania | Castlevania: Nocturne [0]<br>Castlevania [0] |
 | `12` | Pokémon Collection | Pokémon Concierge [0]<br>Pokémon Evolutions [0]<br>Pokémon: Twilight Wings [0]<br>Pokémon [2]<br>+6 more |
 | `13` | Digimon Collection | Digimon Adventure 20th Memorial Story [0]<br>Digimon Adventure: 2020 [0]<br>Digimon Tamers [0]<br>Digimon Frontier [0]<br>+1 more |
