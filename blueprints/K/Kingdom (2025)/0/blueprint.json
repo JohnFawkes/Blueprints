@@ -1,0 +1,34 @@
+{
+  "series": {
+    "template_ids": [
+      0
+    ],
+    "source_files": []
+  },
+  "templates": [
+    {
+      "font_id": 0,
+      "card_type": "landscape",
+      "name": "Documentary",
+      "extras": {
+        "add_bounding_box": "true"
+      },
+      "season_titles": {}
+    }
+  ],
+  "fonts": [
+    {
+      "name": "Helvetica_Documentary",
+      "file": "Helvetica.ttf",
+      "title_case": "upper"
+    }
+  ],
+  "creator": "Reicha7",
+  "description": [
+    "Landscape style card with Helvetica font."
+  ],
+  "previews": [
+    "preview0.jpg"
+  ],
+  "created": "2026-03-18T21:11:30"
+}
