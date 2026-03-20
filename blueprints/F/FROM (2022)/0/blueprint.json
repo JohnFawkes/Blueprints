@@ -1,0 +1,38 @@
+{
+  "series": {
+    "font_id": 0,
+    "card_type": "tinted frame",
+    "extra_keys": [
+      "frame_color",
+      "frame_width",
+      "top_element",
+      "bottom_element",
+      "shadow_color"
+    ],
+    "extra_values": [
+      "rgb(139, 0, 0)",
+      "7",
+      "omit",
+      "title",
+      "white"
+    ],
+    "template_ids": [],
+    "font_color": "rgb(139, 0, 0)",
+    "font_size": 1.3,
+    "source_files": []
+  },
+  "fonts": [
+    {
+      "name": "Afraid",
+      "file": "Afraid.ttf"
+    }
+  ],
+  "creator": "TheHesster",
+  "description": [
+    "This is a tinted frame with a font that resembles the font from the show."
+  ],
+  "previews": [
+    "preview0.jpg"
+  ],
+  "created": "2026-03-20T15:34:19"
+}
