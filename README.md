@@ -7,7 +7,7 @@ Blueprints for importing premade Series configurations into TitleCardMaker.
 
 ## Blueprints
 
-There are currently `911` Blueprints available for `721` Series, submitted by `62` Creators.
+There are currently `914` Blueprints available for `723` Series, submitted by `63` Creators.
 
 Series with the most Blueprints:
 | Series | Blueprints |
@@ -21,8 +21,8 @@ Series with the most Blueprints:
 Creators with the most Blueprint Submissions:
 | Username | Blueprints |
 | :---: | :--- |
-| CollinHeist | 317 |
-| Reicha7 | 245 |
+| CollinHeist | 318 |
+| Reicha7 | 247 |
 | Azuravian | 40 |
 | MrSaiclops | 36 |
 | anonfawkes | 34 |
@@ -83,6 +83,7 @@ Creators with the most Blueprint Submissions:
 | ignore1616 | 1 |
 | Jambopaul | 1 |
 | oudude07 | 1 |
+| TheHesster | 1 |
 
 
 ## Sets
@@ -103,7 +104,7 @@ There are currently `22` Blueprint Sets available:
 | `10` | David Attenborough Documentaries | Planet Earth II [1]<br>Blue Planet II [1]<br>Planet Earth III [0]<br>Mammals [0]<br>+10 more |
 | `11` | Castlevania | Castlevania: Nocturne [0]<br>Castlevania [0] |
 | `12` | Pokémon Collection | Pokémon Concierge [0]<br>Pokémon Evolutions [0]<br>Pokémon: Twilight Wings [0]<br>Pokémon [2]<br>+6 more |
-| `13` | Digimon Collection | Digimon Adventure 20th Memorial Story [0]<br>Digimon Adventure: 2020 [0]<br>Digimon Tamers [0]<br>Digimon Frontier [0]<br>+1 more |
+| `13` | Digimon Collection | Digimon Adventure 20th Memorial Story [0]<br>Digimon Adventure: 2020 [0]<br>Digimon Tamers [0]<br>Digimon Frontier [0]<br>+2 more |
 | `14` | Power Universe | Power [0]<br>Power Book IV: Force [0]<br>Power Book III: Raising Kanan [0]<br>Power Book II: Ghost [0] |
 | `15` | The Big Lez | Mike Nolan's Long Weekend [0]<br>The Big Lez Show [0]<br>The Donny & Clarence Show [0]<br>The Mike Nolan Show [0]<br>+1 more |
 | `16` | DC Comics | DC's Legends of Tomorrow [0]<br>Arrow [0]<br>The Flash [0]<br>Naomi [0]<br>+2 more |
