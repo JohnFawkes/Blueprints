@@ -1,0 +1,124 @@
+{
+  "series": {
+    "font_id": 0,
+    "card_type": "anime",
+    "template_ids": [],
+    "source_files": [],
+    "episode_text_format": "Episode {absolute_episode_number}",
+    "translations": [
+      {
+        "language_code": "ja",
+        "data_key": "kanji"
+      }
+    ],
+    "season_title_ranges": [
+      "2",
+      "s1e1-s1e5",
+      "s1e6-s1e12",
+      "s3e1-s3e5",
+      "s3e6-s3e7",
+      "s3e8-s3e24"
+    ],
+    "season_title_values": [
+      "Murder Incident Solution",
+      "Drama Club",
+      "Meteor Festival",
+      "Interspecies Relations",
+      "Interspecies Relations/Revenge of the Love Failure",
+      "Revenge of the Love Failure"
+    ],
+    "extra_keys": [
+      "episode_text_color",
+      "kanji_vertical_shift"
+    ],
+    "extra_values": [
+      "rgb(236, 4, 68)",
+      "30"
+    ]
+  },
+  "fonts": [
+    {
+      "name": "Beastars",
+      "file": "Fonstars.otf",
+      "interline_spacing": 30,
+      "replacements_in": [
+        "'",
+        ",",
+        "<",
+        "@",
+        "/",
+        ".",
+        "*",
+        "+",
+        "{",
+        "[",
+        ";",
+        "%",
+        "_",
+        ")",
+        "}",
+        "$",
+        "]",
+        "!",
+        "#",
+        ":",
+        "=",
+        "^",
+        "(",
+        "\\",
+        "?",
+        ">",
+        "`",
+        "|",
+        "\"",
+        "&",
+        "-",
+        "\u2019"
+      ],
+      "replacements_out": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "and",
+        "",
+        "'"
+      ],
+      "stroke_width": 2.5,
+      "title_case": "source"
+    }
+  ],
+  "creator": "Reicha7, CollinHeist",
+  "description": [
+    "Using CollinHeist's design with all the arc names used instead of seasons and absolute numbering."
+  ],
+  "previews": [
+    "preview0.jpg"
+  ],
+  "created": "2026-03-20T15:09:54"
+}
