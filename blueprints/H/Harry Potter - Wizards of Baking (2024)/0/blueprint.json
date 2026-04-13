@@ -1,0 +1,39 @@
+{
+  "series": {
+    "font_id": 0,
+    "card_type": "divider",
+    "extra_keys": [
+      "episode_text_color",
+      "episode_text_font_size",
+      "top_element",
+      "bottom_element",
+      "logo_size",
+      "text_position"
+    ],
+    "extra_values": [
+      "white",
+      "2.0",
+      "logo",
+      "index",
+      "2.0",
+      "upper left"
+    ]
+  },
+  "fonts": [
+    {
+      "name": "Harry Potter",
+      "color": "#D4AF37",
+      "file": "HARRYP__.TTF",
+      "title_case": "source",
+      "size": 2.0
+    }
+  ],
+  "creator": "TechJedi51",
+  "description": [
+    "Using the new Divider card, in Harry Potter gold & font."
+  ],
+  "previews": [
+    "preview0.jpg"
+  ],
+  "created": "2026-04-12T20:21:23"
+}
