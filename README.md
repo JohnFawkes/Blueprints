@@ -7,7 +7,7 @@ Blueprints for importing premade Series configurations into TitleCardMaker.
 
 ## Blueprints
 
-There are currently `923` Blueprints available for `730` Series, submitted by `63` Creators.
+There are currently `925` Blueprints available for `731` Series, submitted by `63` Creators.
 
 Series with the most Blueprints:
 | Series | Blueprints |
@@ -21,7 +21,7 @@ Series with the most Blueprints:
 Creators with the most Blueprint Submissions:
 | Username | Blueprints |
 | :---: | :--- |
-| CollinHeist | 320 |
+| CollinHeist | 321 |
 | Reicha7 | 249 |
 | Azuravian | 40 |
 | MrSaiclops | 36 |
@@ -29,8 +29,8 @@ Creators with the most Blueprint Submissions:
 | flowcool | 33 |
 | Cwavs | 18 |
 | rtgurley | 17 |
+| TechJedi51 | 14 |
 | PJ | 13 |
-| TechJedi51 | 13 |
 | barbeq | 13 |
 | BenevolentNPC | 12 |
 | DeepDaddyTTV | 12 |
@@ -88,7 +88,7 @@ Creators with the most Blueprint Submissions:
 
 ## Sets
 
-There are currently `22` Blueprint Sets available:
+There are currently `23` Blueprint Sets available:
 
 | Set ID | Name  | Linked Blueprints |
 | :----: | :---: | :--- |
@@ -114,4 +114,5 @@ There are currently `22` Blueprint Sets available:
 | `20` | Life on Mars (a.k.a. Gene Hunt's World) | Ashes to Ashes [0]<br>Life on Mars [0] |
 | `21` | RWBY Universe | RWBY: Ice Queendom [0]<br>RWBY [0] |
 | `22` | Dexter with Series Subtitles | Dexter: New Blood [2]<br>Dexter [0]<br>Dexter: Original Sin [0]<br>Dexter: Resurrection [2] |
+| `23` | Scrubs | Scrubs [1]<br>Scrubs [1] |
 
