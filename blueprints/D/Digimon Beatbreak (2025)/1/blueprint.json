@@ -1,0 +1,75 @@
+{
+  "series": {
+    "font_id": 0,
+    "template_ids": [
+      0
+    ],
+    "source_files": [],
+    "season_title_ranges": [
+      "s1e1-s1e12",
+      "s1e13-s1e24",
+      "s1e25-s1e27",
+      "s1e28-s1e99"
+    ],
+    "season_title_values": [
+      "Glowing Dawn Arc",
+      "Tactics Arc",
+      "Interlude Arc",
+      "GIFT Arc"
+    ]
+  },
+  "episodes": {
+    "s1e28": {
+      "extra_keys": [
+        "kanji"
+      ],
+      "extra_values": [
+        "GIFT"
+      ]
+    },
+    "s1e29": {
+      "extra_keys": [
+        "kanji"
+      ],
+      "extra_values": [
+        "\u5371\u967a\u306a\u63a8\u3057\u6d3b"
+      ]
+    },
+    "s1e30": {
+      "extra_keys": [
+        "kanji"
+      ],
+      "extra_values": [
+        "\u8e0f\u307f\u51fa\u3059\u4e00\u6b69"
+      ]
+    }
+  },
+  "templates": [
+    {
+      "card_type": "anime",
+      "name": "Anime",
+      "translations": [
+        {
+          "language_code": "ja",
+          "data_key": "kanji"
+        }
+      ],
+      "extras": {},
+      "season_titles": {}
+    }
+  ],
+  "fonts": [
+    {
+      "name": "Digimon",
+      "file": "PixelDigivolve-mOm9.ttf"
+    }
+  ],
+  "creator": "Reicha7",
+  "description": [
+    "Anime card type with kanji translation, a custom Font designed to mimic \"digital\" text, and arc names in place of season titles."
+  ],
+  "previews": [
+    "preview0.jpg"
+  ],
+  "created": "2026-06-08T17:53:32"
+}
