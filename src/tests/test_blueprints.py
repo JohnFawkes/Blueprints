@@ -1,8 +1,8 @@
+from collections.abc import Iterator
 from json import load as json_load, JSONDecodeError
 from pathlib import Path
 
 from re import compile as re_compile
-from typing import Iterator
 
 from build.helper import get_blueprint_folders
 from models.models import Blueprint

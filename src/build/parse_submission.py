@@ -28,7 +28,33 @@ BLUEPRINT_FOLDER = ROOT / 'blueprints'
 TEMP_PREVIEW_FILE = ROOT / 'preview.jpg'
 TEMP_FILE = ROOT / 'tmp'
 TEMP_DIRECTORY = ROOT / 'unzipped'
-URL_REGEX = re_compile(r'\!?\[.*?\]\(([^\s]+)\)')
+
+# Matches markdown-style image/link URLs: ![alt](url) or [text](url)
+MARKDOWN_URL_REGEX = re_compile(r'\!?\[.*?\]\(([^\s]+)\)')
+# Matches src attribute of HTML <img> elements: <img ... src="url" ...>
+HTML_IMG_REGEX = re_compile(r'<img\b[^>]*\bsrc=["\']([^"\']+)["\']')
+
+# Regex to extract all fields from a Blueprint issue body
+BLUEPRINT_ISSUE_REGEX = re_compile(
+    r'^'
+    r'### Series Name\s+(?P<series_name>.+)\s+'
+    r'### Series Year\s+(?P<series_year>\d+)\s+'
+    r'### Series Database IDs\s+(?P<database_ids>.+)\s+'
+    r'### Creator Username\s+(?P<creator>.+)\s+'
+    r'### Blueprint Description\s+(?P<description>[\s\S]*?)\s+'
+    r'### Blueprint\s+```json\s+(?P<blueprint>[\s\S]*?)```\s+'
+    r'### Preview Title Cards\s+.*?(?P<preview_urls>[\s\S]*?)\s+'
+    r'### Zip of Font Files\s+(_No response_|\[.+?\]\((?P<font_zip>http[^\s\)]+)\))\s+'
+    r'### Zip of Source Files\s+(_No response_|\[.+?\]\((?P<source_files>http[^\s\)]+)\))\s+'
+    r'### Set IDs\s+(_No response_|(?P<set_ids>[\d,]+))\s*$'
+)
+
+# Regex to extract all fields from a Blueprint Set issue body
+SET_ISSUE_REGEX = re_compile(
+    r'^'
+    r'### Set Name\s+(?P<set_name>.+)\s+'
+    r'### Blueprints\s+(?P<blueprints>[\s\S]*)$'
+)
 
 
 class BlueprintSubmission(TypedDict):
@@ -80,22 +106,85 @@ def parse_database_ids(ids: str) -> dict[str, int | str]:
 
 def parse_urls(raw: str | None) -> list[str]:
     """
-    Parse the raw markdown into a list of URLs.
+    Parse the raw markdown/HTML into a list of URLs.
+
+    Handles both markdown-style image/link syntax and HTML <img> elements.
 
     >>> parse_urls('![preview](example.jpg) ![preview](example2.jpg)')
     ['example.jpg', 'example2.jpg']
     >>> parse_urls('[zip](https://fonts.zip)')
     ['https://fonts.zip']
+    >>> parse_urls('<img width="200" alt="preview" src="https://example.com/img.jpg">')
+    ['https://example.com/img.jpg']
 
     Args:
-        raw: Raw Markdown of embedded file links to parse. Should be
-            pulled directly from the Issue template.
+        raw: Raw Markdown or HTML of embedded file links to parse. Should
+            be pulled directly from the Issue template.
 
     Returns:
         List of URLs.
     """
 
-    return [] if raw is None else URL_REGEX.findall(raw)
+    if raw is None:
+        return []
+
+    # Find markdown-style URLs: ![alt](url) or [text](url)
+    urls = MARKDOWN_URL_REGEX.findall(raw)
+    # Find HTML img src attributes: <img ... src="url" ...>
+    urls += HTML_IMG_REGEX.findall(raw)
+
+    return urls
+
+
+def _parse_issue_body(content: str) -> dict:
+    """
+    Parse the raw Blueprint issue body text into a dictionary of raw
+    field values using BLUEPRINT_ISSUE_REGEX.
+
+    Args:
+        content: Raw issue body string.
+
+    Returns:
+        Dictionary of matched named groups from the issue body.
+    """
+
+    if not (match := BLUEPRINT_ISSUE_REGEX.match(content)):
+        print(f'Unable to parse Blueprint from Issue')
+        print(f'{content=!r}')
+        sys_exit(1)
+
+    return match.groupdict()
+
+
+def _migrate_blueprint(blueprint: dict) -> dict:
+    """
+    Migrate season titles and extras from the newer format to the legacy
+    format for backwards compatibility with TitleCardMaker.
+
+    This mutates the blueprint dict in-place and also returns it.
+
+    Args:
+        blueprint: Blueprint dictionary to migrate.
+
+    Returns:
+        The migrated blueprint dict.
+    """
+
+    # Migrate series-level season titles and extras
+    if (stitles := blueprint['series'].pop('season_titles', {})):
+        blueprint['series']['season_title_ranges'] = list(stitles.keys())
+        blueprint['series']['season_title_values'] = list(stitles.values())
+    if (extras := blueprint['series'].pop('extras', {})):
+        blueprint['series']['extra_keys'] = list(extras.keys())
+        blueprint['series']['extra_values'] = list(extras.values())
+
+    # Migrate episode-level extras
+    for ep_key, epb in blueprint.get('episodes', {}).items():
+        if (extras := epb.pop('extras', {})):
+            blueprint['episodes'][ep_key]['extra_keys'] = list(extras.keys())
+            blueprint['episodes'][ep_key]['extra_values'] = list(extras.values())
+
+    return blueprint
 
 
 def parse_bp_submission(
@@ -116,6 +205,10 @@ def parse_bp_submission(
         Data (as a dictionary) of the given submission.
     """
 
+    # Default creator comes from the environment (may be overridden by
+    # the issue body's Creator Username field below)
+    creator = environment.get('ISSUE_CREATOR', 'CollinHeist')
+
     # Parse issue from environment variable
     if data is None:
         try:
@@ -126,40 +219,23 @@ def parse_bp_submission(
             print(exc)
             sys_exit(1)
 
-        # Get the issue's author and the body (the issue text itself)
-        creator = environment.get('ISSUE_CREATOR', 'CollinHeist')
+        data = _parse_issue_body(content)
 
-        # Extract the data from the issue text
-        issue_regex = re_compile((
-            r'^'
-            r'### Series Name\s+(?P<series_name>.+)\s+'
-            r'### Series Year\s+(?P<series_year>\d+)\s+'
-            r'### Series Database IDs\s+(?P<database_ids>.+)\s+'
-            r'### Creator Username\s+(?P<creator>.+)\s+'
-            r'### Blueprint Description\s+(?P<description>[\s\S]*?)\s+'
-            r'### Blueprint\s+```json\s+(?P<blueprint>[\s\S]*?)```\s+'
-            r'### Preview Title Cards\s+.*?(?P<preview_urls>[\s\S]*?)\s+'
-            r'### Zip of Font Files\s+(_No response_|\[.+?\]\((?P<font_zip>http[^\s\)]+)\))\s+'
-            r'### Zip of Source Files\s+(_No response_|\[.+?\]\((?P<source_files>http[^\s\)]+)\))\s+'
-            r'### Set IDs\s+(_No response_|(?P<set_ids>[\d,]+))\s*$'
-        ))
-
-        # If data cannot be extracted, exit
-        if not (data := issue_regex.match(content)):
-            print(f'Unable to parse Blueprint from Issue')
-            print(f'{content=!r}')
-            sys_exit(1)
-        data = data.groupdict()
-
-    # Get each variable from the issue
-    print(f'Raw Data: {data=}')
+    # Fill in defaults for optional fields
     data = {
         'font_zip': '_No response_',
         'source_files': '_No response_',
         'set_ids': '_No response_',
     } | data
 
-    creator = (creator if '_No response_' in data['creator'] else data['creator']).strip()
+    print(f'Raw Data: {data=}')
+
+    # Override creator if the issue body specifies one
+    if '_No response_' not in data['creator']:
+        creator = data['creator']
+    creator = creator.strip()
+
+    # Resolve optional zip/set fields
     if data.get('font_zip') is None or '_No response_' in data['font_zip']:
         font_zip_url = None
     else:
@@ -181,26 +257,14 @@ def parse_bp_submission(
         print(f'{data["blueprint"]=!r}')
         sys_exit(1)
 
-    # Clean up description
+    # Clean up description lines
     description = [
         line.strip() + ('' if line.strip().endswith('.') else '.')
         for line in data['description'].splitlines()
         if line.strip()
     ]
 
-    # Migrate season titles and extras from new format to old format
-    # for backwards compatibility
-    if (stitles := blueprint['series'].pop('season_titles', {})):
-        blueprint['series']['season_title_ranges'] = list(stitles.keys())
-        blueprint['series']['season_title_values'] = list(stitles.values())
-    if (extras := blueprint['series'].pop('extras', {})):
-        blueprint['series']['extra_keys'] = list(extras.keys())
-        blueprint['series']['extra_values'] = list(extras.values())
-    # Migrate episode extras
-    for ep_key, epb in blueprint.get('episodes', {}).items():
-        if (extras := epb.pop('extras', {})):
-            blueprint['episodes'][ep_key]['extra_keys'] = list(extras.keys())
-            blueprint['episodes'][ep_key]['extra_values'] = list(extras.values())
+    blueprint = _migrate_blueprint(blueprint)
 
     return {
         'series_name': data['series_name'].strip(),
@@ -266,13 +330,12 @@ def download_zip(zip_url: str, blueprint_subfolder: Path) -> list[Path]:
         sys_exit(1)
     print(f'Downloaded "{zip_url}"')
 
-    # Write zip to temporary file
+    # Write zip to temporary file, then unpack into blueprint folder
     files = []
     extension = zip_url.rsplit('.', maxsplit=1)[-1]
     with NamedTemporaryFile(suffix=f'.{extension}') as file_handle:
         _ = file_handle.write(response.content)
 
-        # Unpack zip into temporary folder
         with TemporaryDirectory() as directory:
             try:
                 unpack_archive(file_handle.name, directory)
@@ -323,43 +386,35 @@ def parse_and_create_blueprint():
     # Get the associated folder for this Series
     letter, folder_name = get_blueprint_folders(f'{series.name} ({series.year})')
 
-    # Create Series folder
+    # Create Series folder and Blueprint ID subfolder
     series_subfolder = BLUEPRINT_FOLDER / letter / folder_name
     series_subfolder.mkdir(exist_ok=True, parents=True)
-
-    # Create Blueprint ID folder
     blueprint_subfolder = series_subfolder / str(blueprint.blueprint_number)
     blueprint_subfolder.mkdir(exist_ok=True, parents=True)
     print(f'Created blueprints/{letter}/{folder_name}/{blueprint.blueprint_number}')
 
-    # Download preview
+    # Download all preview images
     for index, preview in enumerate(submission['preview_urls']):
         download_preview(preview, index, blueprint_subfolder)
 
-    # Add preview image to blueprint
     submission['blueprint']['previews'] = [
         f'preview{index}.jpg'
         for index, _ in enumerate(submission['preview_urls'])
     ]
 
-    # Download any font zip files if provided
+    # Download any font and source zip files if provided
     _ = download_zip(submission['font_zip_url'], blueprint_subfolder)
-
-    # Download source files
     source_files = download_zip(
         submission['source_file_zip_url'], blueprint_subfolder
     )
 
-    # Add source files to Blueprint
     if source_files:
         submission['blueprint']['series']['source_files'] = [
             file.name for file in source_files
         ]
 
-    # Add creation time to Blueprint
+    # Write final Blueprint JSON
     submission['blueprint']['created'] = datetime.now().strftime('%Y-%m-%dT%H:%M:%S')
-
-    # Write Blueprint as JSON
     blueprint_file = blueprint_subfolder / 'blueprint.json'
     with blueprint_file.open('w') as file_handle:
         json_dump(submission['blueprint'], file_handle, indent=2)
@@ -368,6 +423,26 @@ def parse_and_create_blueprint():
         f'{blueprint.blueprint_number}/blueprint.json'
     ))
     print(f'{"-" * 25}\n{submission["blueprint"]}\n{"-" * 25}')
+
+
+def _parse_set_issue_body(content: str) -> dict:
+    """
+    Parse the raw Set issue body text into a dictionary of raw field
+    values using SET_ISSUE_REGEX.
+
+    Args:
+        content: Raw issue body string.
+
+    Returns:
+        Dictionary of matched named groups from the issue body.
+    """
+
+    if not (match := SET_ISSUE_REGEX.match(content)):
+        print(f'Unable to parse Set from JSON')
+        print(f'{content=!r}')
+        sys_exit(1)
+
+    return match.groupdict()
 
 
 def _parse_set_submission(
@@ -394,20 +469,7 @@ def _parse_set_submission(
         print(exc)
         sys_exit(1)
 
-    # Extract the data from the issue text
-    issue_regex = re_compile((
-        r'^'
-        r'### Set Name\s+(?P<set_name>.+)\s+'
-        r'### Blueprints\s+(?P<blueprints>[\s\S]*)$'
-    ))
-
-    # If data cannot be extracted, exit
-    if not (data := issue_regex.match(content)):
-        print(f'Unable to parse Set from JSON')
-        print(f'{content=!r}')
-        sys_exit(1)
-
-    data = data.groupdict()
+    data = _parse_set_issue_body(content)
     print(f'Raw Data: {data=}')
 
     def _parse_path(path: str, /) -> str:
