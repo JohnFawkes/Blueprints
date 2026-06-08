@@ -49,11 +49,11 @@ class SeriesBase(BlueprintBase):
 class BlueprintSeries(SeriesBase):
     template_ids: conlist(int, unique_items=True) = []
     match_titles: bool | None = None
-    font_color: Optional[constr(min_length=1)] = None
-    font_title_case: Optional[TitleCase] = None
-    font_size: Optional[PositiveFloat] = None
-    font_kerning: Optional[float] = None
-    font_stroke_width: Optional[float] = None
+    font_color: constr(min_length=1) | None = None
+    font_title_case: TitleCase | None = None
+    font_size: PositiveFloat | None = None
+    font_kerning: float | None = None
+    font_stroke_width: float | None = None
     font_interline_spacing: int | None = None
     font_vertical_shift: int | None = None
     source_files: conlist(constr(min_length=3), unique_items=True) = []
