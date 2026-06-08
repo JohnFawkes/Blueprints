@@ -440,3 +440,35 @@ def parse_blueprint_set():
         f'Created Set "{bp_set.name}" with {len(bp_set.blueprints)} '
         f'Blueprints{bp_ids}'
     ))
+
+
+if __name__ == '__main__':
+    from json import dumps
+    print(
+        parse_bp_submission(
+            data={
+                'creator': 'CollinHeist',
+                'description': 'Test',
+                'series_name': 'Test Series',
+                'series_year': 2024,
+                'database_ids': 'imdb:tt1234,tmdb:9876,tvdb:567',
+                'preview_urls': '',
+                'blueprint': dumps({
+                    "series": {
+                        "extra_keys": ["font_color"],
+                        "extra_values": ["white"],
+                        "season_titles": {
+                            "1": "s1"
+                        }
+                    },
+                    "episodes": {
+                        "s1e1": {
+                            "extras": {
+                                "red": "blue"
+                            }
+                        }
+                    }
+                })
+            }
+        )
+    )
