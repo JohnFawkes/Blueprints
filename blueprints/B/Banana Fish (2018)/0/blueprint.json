@@ -1,0 +1,67 @@
+{
+  "series": {
+    "font_id": 0,
+    "hide_season_text": true,
+    "template_ids": [
+      0
+    ],
+    "font_color": "black",
+    "font_stroke_width": 0.5,
+    "source_files": [],
+    "extra_keys": [
+      "episode_text_color",
+      "stroke_color",
+      "episode_stroke_color",
+      "kanji_color",
+      "kanji_stroke_color"
+    ],
+    "extra_values": [
+      "yellow",
+      "yellow",
+      "black",
+      "yellow",
+      "black"
+    ]
+  },
+  "episodes": {
+    "s1e1": {
+      "auto_split_title": false,
+      "title": "A Perfect Day\\nfor Bananafish",
+      "match_title": false
+    },
+    "s1e3": {
+      "auto_split_title": false,
+      "title": "Across the River\\nand into the Trees",
+      "match_title": false
+    }
+  },
+  "templates": [
+    {
+      "card_type": "anime",
+      "name": "Anime",
+      "translations": [
+        {
+          "language_code": "ja",
+          "data_key": "kanji"
+        }
+      ],
+      "extras": {},
+      "season_titles": {}
+    }
+  ],
+  "fonts": [
+    {
+      "name": "Banana Fish",
+      "file": "Aku&Kamu.otf",
+      "title_case": "upper"
+    }
+  ],
+  "creator": "Reicha7",
+  "description": [
+    "Anime style card with font to try and match the show title font and colours to match the yellow and black series colour."
+  ],
+  "previews": [
+    "preview0.jpg"
+  ],
+  "created": "2026-06-08T17:26:42"
+}

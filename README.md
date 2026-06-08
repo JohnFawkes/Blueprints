@@ -7,7 +7,7 @@ Blueprints for importing premade Series configurations into TitleCardMaker.
 
 ## Blueprints
 
-There are currently `925` Blueprints available for `731` Series, submitted by `63` Creators.
+There are currently `933` Blueprints available for `736` Series, submitted by `64` Creators.
 
 Series with the most Blueprints:
 | Series | Blueprints |
@@ -22,10 +22,10 @@ Creators with the most Blueprint Submissions:
 | Username | Blueprints |
 | :---: | :--- |
 | CollinHeist | 321 |
-| Reicha7 | 249 |
+| Reicha7 | 256 |
 | Azuravian | 40 |
 | MrSaiclops | 36 |
-| anonfawkes | 34 |
+| anonfawkes | 35 |
 | flowcool | 33 |
 | Cwavs | 18 |
 | rtgurley | 17 |
@@ -50,6 +50,7 @@ Creators with the most Blueprint Submissions:
 | DBKrishnan | 4 |
 | Pekempy | 4 |
 | Dragonsys | 3 |
+| Starpc | 3 |
 | BattleChambers | 3 |
 | Chris | 3 |
 | jmvbrown | 3 |
@@ -58,7 +59,6 @@ Creators with the most Blueprint Submissions:
 | Ziggy73701 | 2 |
 | chriszinkula | 2 |
 | TyroFlakkripper | 2 |
-| Starpc | 2 |
 | Natejt | 2 |
 | IdiotTryingToFindWay | 2 |
 | 00Scooby | 2 |
@@ -84,6 +84,7 @@ Creators with the most Blueprint Submissions:
 | barberq | 1 |
 | ignore1616 | 1 |
 | oudude07 | 1 |
+| polklabs | 1 |
 
 
 ## Sets
@@ -104,7 +105,7 @@ There are currently `23` Blueprint Sets available:
 | `10` | David Attenborough Documentaries | Planet Earth II [1]<br>Blue Planet II [1]<br>Planet Earth III [0]<br>Mammals [0]<br>+10 more |
 | `11` | Castlevania | Castlevania: Nocturne [0]<br>Castlevania [0] |
 | `12` | Pokémon Collection | Pokémon Concierge [0]<br>Pokémon Evolutions [0]<br>Pokémon: Twilight Wings [0]<br>Pokémon [2]<br>+6 more |
-| `13` | Digimon Collection | Digimon Adventure 20th Memorial Story [0]<br>Digimon Adventure: 2020 [0]<br>Digimon Tamers [0]<br>Digimon Frontier [0]<br>+2 more |
+| `13` | Digimon Collection | Digimon Adventure 20th Memorial Story [0]<br>Digimon Adventure: 2020 [0]<br>Digimon Tamers [0]<br>Digimon Frontier [0]<br>+4 more |
 | `14` | Power Universe | Power [0]<br>Power Book IV: Force [0]<br>Power Book III: Raising Kanan [0]<br>Power Book II: Ghost [0] |
 | `15` | The Big Lez | Mike Nolan's Long Weekend [0]<br>The Big Lez Show [0]<br>The Donny & Clarence Show [0]<br>The Mike Nolan Show [0]<br>+1 more |
 | `16` | DC Comics | DC's Legends of Tomorrow [0]<br>Arrow [0]<br>The Flash [0]<br>Naomi [0]<br>+2 more |

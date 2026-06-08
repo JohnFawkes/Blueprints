@@ -1,0 +1,54 @@
+{
+  "series": {
+    "card_type": "anime",
+    "template_ids": [],
+    "font_stroke_width": 2.0,
+    "source_files": [],
+    "episode_text_format": "Journey {absolute_episode_number}",
+    "translations": [
+      {
+        "language_code": "ja",
+        "data_key": "kanji"
+      }
+    ],
+    "season_title_ranges": [
+      "s1e1-s1e6",
+      "s1e7-s1e7",
+      "s1e8-s1e10",
+      "s1e11-s1e11",
+      "s1e12-s1e17",
+      "s1e18-s1e28",
+      "s2e1-s2e5",
+      "s2e6-s2e8",
+      "s2e9-s2e10"
+    ],
+    "season_title_values": [
+      "Beyond Journey's End Arc",
+      "Beyond Journey's End Arc/Aura the Guillotine Arc",
+      "Aura the Guillotine Arc",
+      "Aura the Guillotine Arc/Travels to \u00c4u\u00dferst Arc",
+      "Travels to \u00c4u\u00dferst Arc",
+      "First-Class Mage Exam Arc",
+      "Continued Northern Travels Arc",
+      "Divine Revolte Arc",
+      "The Golden Land Arc"
+    ],
+    "extra_keys": [
+      "stroke_color",
+      "episode_stroke_color"
+    ],
+    "extra_values": [
+      "skyblue",
+      "skyblue"
+    ]
+  },
+  "creator": "Reicha7, anonfawkes",
+  "description": [
+    "Extension of anonfawkes' blueprint with season titles replaced with arc names and absolute episodes named \"Journeys\"."
+  ],
+  "previews": [
+    "preview0.jpg",
+    "preview1.jpg"
+  ],
+  "created": "2026-06-08T17:28:16"
+}

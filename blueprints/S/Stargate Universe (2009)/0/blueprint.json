@@ -1,0 +1,36 @@
+{
+  "series": {
+    "font_id": 0,
+    "card_type": "azuravian/TitleColorMatch",
+    "template_ids": [],
+    "font_color": "white",
+    "source_files": []
+  },
+  "fonts": [
+    {
+      "name": "Stargate",
+      "file": "stargate.ttf",
+      "kerning": 0.9,
+      "interline_spacing": 25,
+      "replacements_in": [
+        "(1)",
+        "(2)",
+        "(3)"
+      ],
+      "replacements_out": [
+        ": Part 1",
+        ": Part 2",
+        ": Part 3"
+      ],
+      "title_case": "upper"
+    }
+  ],
+  "creator": "Reicha7",
+  "description": [
+    "Inspired by Sproglet's SG-1 blueprint."
+  ],
+  "previews": [
+    "preview0.jpg"
+  ],
+  "created": "2026-06-08T17:30:33"
+}
