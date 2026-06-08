@@ -1,0 +1,26 @@
+{
+  "series": {
+    "card_type": "striped",
+    "extra_keys": [
+      "angle",
+      "overlay_color",
+      "polygons"
+    ],
+    "extra_values": [
+      "90",
+      "black",
+      "100+"
+    ],
+    "template_ids": [],
+    "font_color": "white",
+    "source_files": []
+  },
+  "creator": "polklabs",
+  "description": [
+    "Modified Stripe card to somewhat match the stripe effect of the popular series poster."
+  ],
+  "previews": [
+    "preview0.jpg"
+  ],
+  "created": "2026-06-08T17:25:30"
+}
