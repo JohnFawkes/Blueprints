@@ -1,0 +1,60 @@
+{
+  "series": {
+    "card_type": "star wars",
+    "template_ids": [],
+    "match_titles": false,
+    "font_color": "rgb(255, 0, 0)",
+    "source_files": [],
+    "episode_text_format": "Chapter {to_cardinal(episode_number)}",
+    "extra_keys": [
+      "episode_text_color"
+    ],
+    "extra_values": [
+      "red"
+    ]
+  },
+  "episodes": {
+    "s1e1": {
+      "title": "The Dark Revenge"
+    },
+    "s1e2": {
+      "title": "Sinister Schemes"
+    },
+    "s1e3": {
+      "auto_split_title": false,
+      "title": "Whispers\\nin the Unknown",
+      "match_title": false
+    },
+    "s1e4": {
+      "title": "Pride and Vengeance"
+    },
+    "s1e5": {
+      "title": "Inquisition"
+    },
+    "s1e6": {
+      "auto_split_title": false,
+      "title": "Night of\\nthe Hunted",
+      "match_title": false
+    },
+    "s1e7": {
+      "title": "Call to Oblivion"
+    },
+    "s1e8": {
+      "title": "The Creeping Fear"
+    },
+    "s1e9": {
+      "title": "Strange Allies"
+    },
+    "s1e10": {
+      "title": "The Dark Lord"
+    }
+  },
+  "creator": "Reicha7, Starpc",
+  "description": [
+    "Extension of Starpc's blueprint to remove the \"Chapter\" from the title and instead take the spot of the episode text."
+  ],
+  "previews": [
+    "preview0.jpg"
+  ],
+  "created": "2026-06-08T17:29:30"
+}
